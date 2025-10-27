@@ -1,93 +1,111 @@
-.body {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,496&display=swap');
 
+.body {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: italic;
+    font-variation-settings:
+            "wdth" 100;
+    font-size: 40px;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 400px auto;
+    grid-template-rows: 100px auto;
+    grid-template-areas:
+    "sidebar toolbar"
+    "sidebar content";
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    grid-area: sidebar;
+    height: 100vh;
+    width: 400px;
+    background: #383838;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+.toolbar {
+    grid-area: toolbar;
+    background: #FFFFFF;
 }
 
 .content {
-    display: grid;
-    grid-template-columns: 250px auto;
-    grid-template-areas:
-    "list"
-    "main";
+    grid-area: content;
+    background: gray;
+    height: 100vh;
 }
 
-.left-bar {
-    display: grid;
-    grid-template-rows: 120px 800px;
-    background: #383838;
-
-}
-
-.title-site {
-    background:#383838 ;
-    height: 120px;
-    width: 250px;
-    position: sticky;
-    top: 0px;
-}
-
-.left-menu {
-    display: grid;
-    grid-template-rows: 100px 100px 100px;
+.menu {
     overflow-y: auto;
-    position: sticky;
-    top:120px;
-    scrollbar-width: none;
+    height: 100%;
+    overflow-x: hidden;
 }
 
-.grid-menu-item {
-    color: darkgray;
-    height: 50px;
+.menu-link {
+    box-sizing: border-box;
+    display: flex;
+    height: 70px;
     padding: 15px;
-    min-height: 0;
-    border-bottom: 1px solid gray;
-    font-size: 1.2em;
+    align-items: center;
+    text-decoration: none;
+    color: #B7B7B7;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    border-bottom: 2px solid #F2F2F21A;
 }
 
-.main-page {
-    display: grid;
-    grid-template-rows: 88px auto;
-    background: #CDCDCD;
+.menu-item:last-of-type .menu-link {
+    border-bottom: none;
 }
 
-.nav-menu {
-    display: grid;
-    grid-template-columns: 200px 780px  360px 300px;
-    height: 41px;
-    padding: 10px;
-    background: white;
-    border: none;
-    position: sticky;
-    top: 0px;
+.menu-link:hover{
+    color: #FFF;
+    background: rgba(255,255,255,0.05);
+    transition: .5s;
 }
 
-.search-icon {
-    width: 16px;
-    height: 16px;
-    margin: 10px auto 10px 90% ;
+.logo-link {
+    display: block;
+    margin: 29px auto 29px;
 }
 
-.grid-list-films {
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
-    margin-left: 30px;
-    gap: 20px;
+.title-link {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 200px;
 }
 
-#search-button {
-    width: 89px;
-    background: #E7A04E;
-    border-radius: 11px;
+.movie-item {
+    position: relative;
+    width: 370px;
+    height: 700px;
+    background: darkgreen;
+    overflow: hidden;
 }
-#add-button{
-    width: 158px;
-    background: #12C584;
-    border-radius: 11px;
+.movie-item-hover {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    left:0;
+    top:100%;
+    transition: .2s;
+    background: rgba(0, 0, 0, 0.70);
 }
 
-.nav-menu-grid-item {
-    border: none;
-}
-
-.list-film-item {
-    border-radius: 11px;
+.movie-item:hover .movie-item-hover{
+    top:0;
 }
